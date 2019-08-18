@@ -1025,6 +1025,9 @@ void opt_init(char *name, int argc, char **argv, int show_usage)
 			// instead of normal loading if we are in 'normal' show mode)
 			options.flags &= ~FLG_SHOW_CHK;
 		}
+		else if (!strcasecmp(show_uncracked_str, "hash")) {
+			options.loader.showhash = 1;
+		}
 		else if (!strcasecmp(show_uncracked_str, "formats")) {
 			options.loader.showformats = 1;
 		}
@@ -1037,7 +1040,7 @@ void opt_init(char *name, int argc, char **argv, int show_usage)
 		}
 		else {
 			fprintf(stderr, "Invalid option in --show switch. Valid options:\n"
-			        "--show, --show=left, --show=formats, --show=types, --show=invalid\n");
+			        "--show, --show=hash, --show=left, --show=formats, --show=types, --show=invalid\n");
 			error();
 		}
 	}

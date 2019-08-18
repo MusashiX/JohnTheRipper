@@ -207,6 +207,9 @@ struct db_options {
 /* if --show=left is used, john dumps the non-cracked hashes */
 	int showuncracked;
 
+/* if --show=hash is used, show all cracked hashes format hash:plain*/
+	int showhash;
+
 /* if --show=formats is used, show all hashes in JSON form */
 	int showformats;
 

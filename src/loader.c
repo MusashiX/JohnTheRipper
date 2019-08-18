@@ -2088,8 +2088,17 @@ static void ldr_show_pw_line(struct db_main *db, char *line)
 		} else
 		if (current) {
 			found = 1;
-			if (show) printf("%s%c", login,
-			                 db->options->field_sep_char);
+			if (show) {
+				if (options.loader.showhash)
+				{
+					printf("%s%c",ciphertext, db->options->field_sep_char);
+
+				}
+				else
+				{
+					printf("%s%c", login, db->options->field_sep_char);
+				}
+			}
 			break;
 		}
 	}
